@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		
+		#wrap {
+			position: relative;
+			margin:90px auto;
+			width:246px;
+		}
+		a{
+			float:left;
+			padding:10px;
+			border:1px solid red;
+			margin-right:-1px;
+			border-radius: 15px;
+			transition: 1s;
+			text-decoration: none;
+			color:#000;
+		}
+		.content {
+			position: absolute;
+			width:246px;
+			height:250px;
+			border:1px solid #000;
+			left:0;
+			top:43px;
+			display: none;
+			
+		}
+
+		.content:target {
+			display: block;
+		}
+
+		.content:target +a{
+			background-color: pink;
+			color:#fff;
+		}
+
+
+
+		
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		
+		<div id="sy" class="content" >首页内容</div>
+		<a href="#sy">首页</a>
+			
+		<div id="kc" class="content" >课程内容</div>
+		<a href="#kc">课程</a>
+		
+		<div id="sq" class="content" >社区内容</div>
+		<a href="#sq">社区</a>	
+		
+		<div id="lx" class="content" >联系我们内容</div>
+		<a href="#lx">联系我们</a>	
+
+	</div>
+
+	<script type="text/javascript">
+		window.location.href = window.location.href.split("#")[0]+"#sy";
+	</script>
+</body>
+</html>

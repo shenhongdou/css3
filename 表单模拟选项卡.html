@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#wrap {
+			overflow: hidden;
+			margin:90px auto;
+			position: relative;
+			width:248px;
+			height:296px;
+		}
+		input {
+			display: none;
+		}
+		span {
+			float:left;
+			padding:10px;
+			border:1px solid red;
+			margin-right:-1px;
+			border-radius: 15px;
+			transition: 1s;
+		}
+		
+		input:checked+span {
+			background-color: pink;
+			color:#fff;
+
+		}
+
+		.content {
+			position: absolute;
+			width:246px;
+			height:250px;
+			border:1px solid #000;
+			left:0;
+			top:43px;
+			display: none;
+		}
+
+
+		input:checked~ .content {
+			display: block;
+		}
+
+		
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		
+		<label>
+			<input id="shouye" type="radio" name="nav" checked />
+			<span>首页</span>
+			<div class="content" >首页内容</div>
+		</label>
+
+		<label>
+			<input id="kecheng" type="radio" name="nav" />
+			<span>课程</span>
+			<div class="content" >课程内容</div>
+		</label>
+
+		<label>
+			<input id="shequ" type="radio" name="nav" />
+			<span>社区</span>
+			<div class="content" >社区内容</div>
+		</label>
+
+		<label>
+			<input id="lianxi" type="radio" name="nav" />
+			<span>联系我们</span>
+			<div class="content" >联系我们内容</div>
+		</label>
+		
+	</div>
+</body>
+</html>

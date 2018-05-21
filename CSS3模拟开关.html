@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3模拟开关</title>
+</head>
+<style>
+	
+	label {
+		width:80px;
+		height:30px;
+		border:1px solid #000;
+		background-color: #fff;
+		border-radius: 18px;
+		display: block;
+		margin:80px auto;
+		
+	}
+	input {
+		display:none;
+	}
+	
+	span {
+		width:30px;
+		height:30px;
+		border-radius:50%;
+		background-color:#fff;
+		display: block;
+		box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+		transition:.5s;
+	}
+	input:checked+label {
+		background:#14e014;
+	}
+	input:checked+label span {
+		-webkit-transform:translateX(50px);
+		
+	}
+</style>
+<body>
+	<div id="wrap">
+		<input id="onOff" type="checkbox" />
+		<label for="onOff">
+			<span></span>
+		</label>
+	</div>
+</body>
+</html>					

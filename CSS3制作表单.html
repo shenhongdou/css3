@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<title>CSS3制作表单</title>
+<style type="text/css">
+
+/*
+知识点：
+
+	background-size: cover;图片大小
+	filter: blur(4px);模糊值
+	background-color:rgba(255,255,255,0.7);
+	background-clip: content-box;
+	background:-webkit-linear-gradient(transparent 49%, #000 49%, #000 51%, transparent 51%);
+	.content input[type="text"]:focus
+	.content input[type="text"]::-webkit-input-placeholder
+	input[name="sex"]+label:before
+*/
+	html {height:100%;}
+	body {
+		margin:0;
+		height:100%;
+	}
+	#mask {
+		height:100%;
+		background:url("bg.jpg") no-repeat;
+		background-size: cover;
+		filter: blur(4px);
+	}
+
+	#drog {
+		width:520px;
+		height:640px;
+		position: absolute;
+		left:50%;
+		top:50%;
+		margin:-320px 0 0 -260px;
+		background-color:rgba(255,255,255,0.7);
+		padding:5px;
+		background-clip: content-box;
+		border:1px solid #fff;
+		border-radius: 10px;
+		box-sizing: border-box;
+	}
+	
+	#drog .title {
+		display:flex;
+		margin:30px 0;
+	}
+	#drog .title span {
+		display: inline-block;
+		background:-webkit-linear-gradient(transparent 49%, #000 49%, #000 51%, transparent 51%);
+		flex:1;
+
+	}
+	#drog .title h2 {
+		margin:0;
+		text-align:center;
+		padding:0 10px;
+	}
+	
+	#drog .left_title {
+		width:150px;
+		text-align: right;
+		font-size:18px;
+	}
+
+	#drog tr {
+		height:65px;
+	}
+
+	.content input[type="text"], .content input[type="password"] {
+		border:none;
+		border-bottom: 2px solid #999;
+		background: transparent;
+		outline: none;
+		width:230px;
+		height:40px;
+		text-indent: 20px;
+		transition: .5s;
+	}
+	.content input[type="text"]:focus, .content input[type="password"]:focus {
+		border-bottom-color: #562d2b;
+	}
+
+	.content input[type="text"]::-webkit-input-placeholder, .content input[type="password"]::-webkit-input-placeholder{
+		transition: .5s;
+		transform-origin: top left;
+		font-size:14px;
+	}
+	.content input[type="text"]:focus::-webkit-input-placeholder, .content input[type="password"]:focus::-webkit-input-placeholder{
+		-webkit-transform:scale(.8) translateY(-15px); 
+	}
+	
+	input[name="sex"], input[name="favoriteFood"] {
+		display: none;
+	}
+
+	input[name="sex"]+label:before {
+		content:"";
+		display:inline-block;
+		width:8px;
+		height:8px;
+		border:1px solid #000;
+		border-radius: 50%;
+		padding:4px;
+		background-clip: content-box;
+	}
+
+	input[name="sex"]:checked +label:before {
+		background-color: red;
+	}
+
+	.gender label {
+		position: relative;
+		padding-left: 30px
+	}
+	.gender label:before {
+		position: absolute;
+		left:10px;
+		top:3px;
+	}
+	
+	.menu {width:228px;}
+	.menu input[type="checkbox"]+label {
+		
+		display: inline-block;
+		width:15px;
+		height:15px;
+		border:1px solid #000;
+		border-radius:3px;
+		position: relative;
+		
+	}
+
+	.menu input[type="checkbox"]:checked+label:before{
+		content:"";
+		display: inline-block;
+		width:3px;
+		height:10px;
+		background-color:#000;
+		transform:rotate(-30deg);
+		position: absolute;
+		top:4px;
+		left:2px;
+	}
+	.menu input[type="checkbox"]:checked+label:after{
+		content:"";
+		display: inline-block;
+		width:3px;
+		height:15px;
+		background-color:#000;
+		transform:rotate(30deg);
+		position: absolute;
+		top:-1px;
+		left:8px;
+	}
+
+	#drog textarea {
+		width:258px;
+		height:104px;
+	}
+	.btn input{
+		width:100px;
+        height: 30px;
+        background: #362e2b;
+        color: #fff;
+        /*outline: none;*/
+       
+	}
+*/
+</style>
+</head>
+<body>
+	<div id="mask"></div>
+	<div id="drog">
+		<div class="title">
+			<span></span>
+			<h2>用户注册</h2>
+			<span></span>
+		</div>
+		<form action="">
+			<table>
+				<tr>
+					<td class="left_title">姓名：</td>
+					<td class="content"><input type="text" placeholder="请输入4-12个字符" /></td>
+				</tr>
+				<tr>
+					<td class="left_title">密码：</td>
+					<td class="content"><input type="password" placeholder="请输入密码" /></td>
+				</tr>
+				<tr>
+					<td class="left_title">验证密码：</td>
+					<td class="content"><input type="password" placeholder="请再次输入密码" /></td>
+				</tr>
+				<tr>
+					<td class="left_title">性别：</td>
+					<td class="content gender">
+						<input id="man" type="radio" name="sex" checked /><label for="man">男</label>
+						<input id="female" type="radio" name="sex" /><label for="female">女</label>
+					</td>
+				</tr>
+				<tr>
+					<td class="left_title">爱好菜系选择：</td>
+					<td class="content menu">
+						<input id="food_c" type="checkbox" name="favoriteFood" value="川菜" /><label for="food_c"></label>川菜
+						<input id="food_y" type="checkbox" name="favoriteFood" /><label for="food_y"></label>粤菜
+						<input id="food_x" type="checkbox" name="favoriteFood" /><label for="food_x"></label>湘菜
+						<input id="food_l" type="checkbox" name="favoriteFood" /><label for="food_l"></label>鲁菜
+						<input id="food_h" type="checkbox" name="favoriteFood" /><label for="food_h"></label>徽菜
+						<input id="food_s" type="checkbox" name="favoriteFood" /><label for="food_s"></label>苏菜
+						<input id="food_z" type="checkbox" name="favoriteFood" /><label for="food_z"></label>浙菜
+					</td>
+				</tr>
+				<tr>
+					<td class="left_title">个人简介</td>
+					<td class="content">
+						<textarea></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td class="left_title"></td>
+					<td class="content btn"> 
+						<input type="submit" value="提交" />
+						<input type="reset" value="重置" />
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

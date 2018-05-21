@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#wrap {
+			overflow: hidden;
+			margin:90px auto;
+		}
+		input {
+			display: none;
+		}
+		label {
+			float:left;
+			padding:10px;
+			border:1px solid red;
+			margin-right:-1px;
+			border-radius: 15px;
+		}
+		
+		input:checked+label {
+			background-color: pink;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<input id="shouye" type="radio" name="nav" checked />
+		<label for="shouye">首页</label>
+		
+		<input id="kecheng" type="radio" name="nav" />
+		<label for="kecheng">课程</label>
+		
+		<input id="shequ" type="radio" name="nav" />
+		<label for="shequ">社区</label>
+		
+		<input id="lianxi" type="radio" name="nav" />
+		<label for="lianxi">联系我们</label>
+		
+	</div>
+</body>
+</html>
